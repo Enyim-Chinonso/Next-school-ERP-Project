@@ -1,5 +1,9 @@
 // import Navbar from "./components/Navbar";
 
+import HeroAnimated from "./components/HeroAnimated";
+import FadeInSection from "./components/FadeInSection";
+
+
 export default function Home() {
   return (
     <>
@@ -7,11 +11,45 @@ export default function Home() {
       {/* <Navbar /> */}
 
       {/* Hero Section */}
-      <header
+
+      <HeroAnimated />
+
+      
+      <FadeInSection>
+        <section id="features" className="py-5 bg-light">
+          <div className="container text-center">
+            <h2 className="mb-4">Features</h2>
+            <p>All-in-one platform for school management.</p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <FadeInSection>
+        <section id="about" className="py-5">
+          <div className="container text-center">
+            <h2 className="mb-4">About Us</h2>
+            <p>We help schools run smoothly with technology.</p>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <FadeInSection>
+        <section id="contact" className="py-5 bg-light">
+          <div className="container text-center">
+            <h2 className="mb-4">Contact</h2>
+            <p>Reach out to us anytime.</p>
+          </div>
+        </section>
+      </FadeInSection>
+
+
+      {/* <header
         className="bg-light text-dark text-center d-flex align-items-start"
         style={{
-           minHeight: "60vh", 
-          paddingTop: "50px",     
+          //  minHeight: "60vh", 
+           minHeight: "100vh", 
+          // paddingTop: "50px",     
+          paddingTop: "80px",     
          
         }}
       >
@@ -32,34 +70,9 @@ export default function Home() {
           </div>
           
         </div>
-      </header>
+      </header> */}
     </>
   );
 }
 
 
-// export default function HomePage() {
-//   return (
-//     <header
-//       className="hero text-light text-center d-flex align-items-start"
-//       style={{
-//         minHeight: "60vh",
-//         paddingTop: "40px", // keeps hero closer to navbar
-//       }}
-//     >
-//       <div className="container mt-5">
-//         <h1 className="display-4 fw-bold">Welcome to School ERP</h1>
-//         <p className="lead">
-//  Manage Students, Teachers, Parents, and Admin operations all in one place.
-//  </p>
-//         <a href="#" className="btn btn-warning btn-lg mt-3">
-//           Explore features
-//         </a>
-
-//         <a href="/contact" className="btn btn-outline-dark btn-lg mt-3">
-//              Get in Touch
-//         </a>
-//       </div>
-//     </header>
-//   );
-// }

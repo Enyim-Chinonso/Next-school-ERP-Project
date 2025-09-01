@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import BootstrapClient from "./BootstrapClient";
+import LenisProvider from "./components/LenisProvider";
 
  export const metadata = {
    title: "School ERP",
@@ -11,36 +12,16 @@ import BootstrapClient from "./BootstrapClient";
 
  export default function RootLayout({ children }) {
    return (
-     <html lang="en"  data-scroll-behavior="smooth">
+      <html lang="en">
        <body>
         <Navbar />
          {/* Load Bootstrap JS on the client so collapse/toggler works */}  
          <BootstrapClient />
-         {children}
+        {/* Enable smooth scrolling across the whole app */}
+        <LenisProvider>{children}</LenisProvider>
        </body>
      </html>
    );
  }
 
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "./globals.css";
-// import BootstrapClient from "./BootstrapClient";
-// import Navbar from "./components/Navbar";
-
-// export const metadata = {
-//   title: "Next.js School ERP",
-//   description: "School ERP system built with Next.js and Bootstrap",
-// };
-
-// export default function RootLayout({ children }) {
-//   return (
-//     <html lang="en">
-//       <body>
-//         <Navbar />
-//         <main>{children}</main>
-//         <BootstrapClient />
-//       </body>
-//     </html>
-//   );
-// }
