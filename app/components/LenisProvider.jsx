@@ -37,6 +37,60 @@
 // }
 
 
+// "use client";
+
+// import { useEffect } from "react";
+// import Lenis from "lenis";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// // Register plugin once
+// gsap.registerPlugin(ScrollTrigger);
+
+// export default function LenisProvider({ children }) {
+//   useEffect(() => {
+//     const lenis = new Lenis({
+//       duration: 1.1,
+//       smoothWheel: true,
+//       smoothTouch: false,
+//     });
+
+//     let rafId;
+//     const raf = (time) => {
+//       lenis.raf(time);
+//       ScrollTrigger.update(); // <- keep ScrollTrigger in sync
+//       rafId = requestAnimationFrame(raf);
+//     };
+//     rafId = requestAnimationFrame(raf);
+
+//     // Connect Lenis with ScrollTrigger
+//     ScrollTrigger.scrollerProxy(document.body, {
+//       scrollTop(value) {
+//         return arguments.length ? lenis.scrollTo(value) : lenis.scroll.instance.scroll;
+//       },
+//       getBoundingClientRect() {
+//         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+//       },
+//     });
+
+//     // sync GSAP ScrollTrigger with lenis
+//     lenis.on("scroll", ScrollTrigger.update);
+
+//     ScrollTrigger.addEventListener("refresh", () => lenis.raf(0));
+//     ScrollTrigger.refresh();
+
+//     return () => {
+//       cancelAnimationFrame(rafId);
+//       lenis.destroy();
+//       ScrollTrigger.kill();
+//     };
+//   }, []);
+
+//   return children;
+// }
+
+
+
 "use client";
 
 import { useEffect } from "react";
@@ -44,7 +98,7 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register plugin once
+// Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LenisProvider({ children }) {
@@ -57,26 +111,38 @@ export default function LenisProvider({ children }) {
 
     let rafId;
     const raf = (time) => {
-      lenis.raf(time);
-      ScrollTrigger.update(); // <- keep ScrollTrigger in sync
+      lenis.raf(time);          // run Lenis on each frame
+      ScrollTrigger.update();   // keep ScrollTrigger in sync
       rafId = requestAnimationFrame(raf);
     };
     rafId = requestAnimationFrame(raf);
 
-    // Connect Lenis with ScrollTrigger
+    // Connect Lenis with GSAP's ScrollTrigger
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
-        return arguments.length ? lenis.scrollTo(value) : lenis.scroll.instance.scroll;
+        if (arguments.length) {
+          lenis.scrollTo(value); // programmatically set scroll
+        } else {
+          return window.scrollY; // current scroll position
+        }
       },
       getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
       },
     });
 
-    // sync GSAP ScrollTrigger with lenis
+    // Sync GSAP when Lenis scrolls
     lenis.on("scroll", ScrollTrigger.update);
 
-    ScrollTrigger.addEventListener("refresh", () => lenis.raf(0));
+    // Refresh ScrollTrigger after setup
+    ScrollTrigger.addEventListener("refresh", () => {
+      ScrollTrigger.update();
+    });
     ScrollTrigger.refresh();
 
     return () => {

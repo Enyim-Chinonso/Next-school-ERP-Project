@@ -14,7 +14,7 @@ export default function Home() {
 
       <HeroAnimated />
 
-      
+{/*       
       <FadeInSection>
         <section id="features" className="py-5 bg-light">
           <div className="container text-center">
@@ -40,7 +40,7 @@ export default function Home() {
             <p>Reach out to us anytime.</p>
           </div>
         </section>
-      </FadeInSection>
+      </FadeInSection> */}
 
 
       {/* <header

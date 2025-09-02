@@ -20,7 +20,7 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-dark text-light text-center py-5">
+      <section className="bg-dark text-light text-center py-5 hero.section">
         <div className="container">
           <h1 className="display-4 fw-bold">About School ERP</h1>
           <p className="lead mt-3">

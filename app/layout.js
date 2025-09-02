@@ -12,7 +12,7 @@ import LenisProvider from "./components/LenisProvider";
 
  export default function RootLayout({ children }) {
    return (
-      <html lang="en">
+      <html lang="en" data-scroll-behavior="smooth">
        <body>
         <Navbar />
          {/* Load Bootstrap JS on the client so collapse/toggler works */}  
