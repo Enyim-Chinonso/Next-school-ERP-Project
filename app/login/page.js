@@ -1,228 +1,156 @@
-// "use client";
-
-// import { useState } from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-// export default function LoginPage() {
-//   const [role, setRole] = useState("superadmin");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Selected Role:", role);
-//     // TODO: Redirect to role dashboard here
-//   };
-
-//   return (
-//     <div
-//       className="d-flex align-items-center justify-content-center vh-100"
-//       style={{ background: "#f0f0f0" }}
-//     >
-//       <div
-//         className="card shadow-lg p-4"
-//         style={{ width: "100%", maxWidth: "400px", borderRadius: "15px" }}
-//       >
-//         <h3 className="text-center fw-bold mb-4">School ERP Login</h3>
-
-//         <form onSubmit={handleSubmit}>
-//           {/* Role Selection */}
-//           <div className="mb-4">
-//             <label className="form-label fw-semibold">Select Role</label>
-//             <select
-//               className="form-select"
-//               value={role}
-//               onChange={(e) => setRole(e.target.value)}
-//             >
-//               <option value="superadmin">Super Admin</option>
-//               <option value="admin">Admin</option>
-//               <option value="teacher">Teacher</option>
-//               <option value="student">Student</option>
-//               <option value="parent">Parent</option>
-//             </select>
-//           </div>
-
-//           {/* Login Button */}
-//           <button
-//             type="submit"
-//             className="btn btn-warning w-100 fw-bold"
-//             style={{ borderRadius: "10px" }}
-//           >
-//             Login
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-// "use client";
-// import { useState } from "react";
-
-// export default function LoginPage() {
-//   const [role, setRole] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Login submitted", { role });
-//     // 🔑 Here you’ll connect API/auth logic later
-//   };
-
-//   return (
-//     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-//       <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6">
-//         <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
-//           School ERP Login
-//         </h1>
-
-//         <form onSubmit={handleSubmit} className="space-y-4">
-//           {/* Email or User ID */}
-//           <div>
-//             <label className="block text-sm font-medium text-gray-700 mb-1">
-//               Email or User ID
-//             </label>
-//             <input
-//               type="text"
-//               placeholder="Enter Email or User ID"
-//               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             />
-//           </div>
-
-//           {/* Password */}
-//           <div>
-//             <label className="block text-sm font-medium text-gray-700 mb-1">
-//               Password
-//             </label>
-//             <input
-//               type="password"
-//               placeholder="Enter Password"
-//               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             />
-//           </div>
-
-//           {/* Role Selection */}
-//           <div>
-//             <label className="block text-sm font-medium text-gray-700 mb-1">
-//               Select Role
-//             </label>
-//             <select
-//               value={role}
-//               onChange={(e) => setRole(e.target.value)}
-//               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             >
-//               <option value="">-- Choose Role --</option>
-//               <option value="superadmin">Super Admin</option>
-//               <option value="admin">Admin</option>
-//               <option value="teacher">Teacher</option>
-//               <option value="student">Student</option>
-//               <option value="parent">Parent</option>
-//             </select>
-//           </div>
-
-//           {/* Submit */}
-//           <button
-//             type="submit"
-//             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-//           >
-//             Login
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 "use client";
+
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
+// map each role to its dashboard route
+const ROLE_ROUTES = {
+  "super-admin": "/super-admin",
+  admin: "/admin",
+  teacher: "/teacher",
+  student: "/student",
+  parent: "/parent",
+};
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  // form state
   const [role, setRole] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPwd, setShowPwd] = useState(false);
+
+  // simple validation helpers
+  const [touched, setTouched] = useState({ role: false, username: false, password: false });
+  const [formError, setFormError] = useState("");
+
+  const invalid = {
+    role: touched.role && !role,
+    username: touched.username && !username.trim(),
+    password: touched.password && !password,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted", { role });
-    // 🔑 Auth logic here
+
+    // basic required-field checks
+    if (!role || !username.trim() || !password) {
+      setTouched({ role: true, username: true, password: true });
+      setFormError("Please fill in all required fields.");
+      return;
+    }
+
+    setFormError("");
+
+    // stub “auth”
+    // here you would call your API then redirect by role
+    const target = ROLE_ROUTES[role];
+    if (target) router.push(target);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
-        {/* Title */}
-        <h1 className="text-2xl font-semibold text-center text-gray-800 mb-2">
-          Welcome Back
-        </h1>
-        <p className="text-center text-gray-500 mb-6 text-sm">
-          Login to your School ERP account
-        </p>
+    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light py-5">
+      <div className="card shadow-lg rounded-4" style={{ maxWidth: 480, width: "100%" }}>
+        <div className="card-body p-4 p-md-5">
+          {/* Header */}
+          <h1 className="h3 text-center fw-bold mb-1">School ERP Login</h1>
+          <p className="text-center text-muted mb-4">Access your account</p>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
-          {/* Email or User ID */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email or User ID
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your email or ID"
-              className="w-full px-4 py-2.5 border rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
+          {/* Form-level error */}
+          {formError && <div className="alert alert-warning py-2">{formError}</div>}
+
+          <form noValidate onSubmit={handleSubmit}>
+            {/* Role */}
+            <div className="mb-3">
+              <label htmlFor="role" className="form-label">Role</label>
+              <select
+                id="role"
+                className={`form-select ${invalid.role ? "is-invalid" : ""}`}
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                onBlur={() => setTouched((t) => ({ ...t, role: true }))}
+                required
+              >
+                <option value="">-- Choose role --</option>
+                <option value="super-admin">Super Admin</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+              </select>
+              <div className="invalid-feedback">Please select your role.</div>
+            </div>
+
+            {/* Username / ID */}
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">Email or User ID</label>
+              <input
+                id="username"
+                type="text"
+                className={`form-control ${invalid.username ? "is-invalid" : ""}`}
+                placeholder="Enter your email or ID"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                onBlur={() => setTouched((t) => ({ ...t, username: true }))}
+                required
+                autoComplete="username"
+              />
+              <div className="invalid-feedback">This field is required.</div>
+            </div>
+
+            {/* Password with eye toggle */}
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <div className="input-group">
+                <input
+                  id="password"
+                  type={showPwd ? "text" : "password"}
+                  className={`form-control ${invalid.password ? "is-invalid" : ""}`}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  onBlur={() => setTouched((t) => ({ ...t, password: true }))}
+                  required
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowPwd((v) => !v)}
+                  aria-label={showPwd ? "Hide password" : "Show password"}
+                >
+                  <i className={`bi ${showPwd ? "bi-eye-slash" : "bi-eye"}`} />
+                </button>
+                <div className="invalid-feedback">Password is required.</div>
+              </div>
+            </div>
+
+            {/* Remember + Help */}
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" id="remember" />
+                <label className="form-check-label" htmlFor="remember">Remember me</label>
+              </div>
+              <Link href="/forgot-password" className="small link-dark text-decoration-none">
+                Forgot password?
+              </Link>
+            </div>
+
+            {/* Submit */}
+            <button type="submit" className="btn btn-warning w-100 py-2">
+              <i className="bi bi-box-arrow-in-right me-2" />
+              Login
+            </button>
+          </form>
+
+          {/* Footer Links */}
+          <div className="text-center mt-3">
+            <Link href="/help" className="small link-secondary text-decoration-none">
+              Need help?
+            </Link>
           </div>
-
-          {/* Password */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full px-4 py-2.5 border rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              required
-            />
-          </div>
-
-          {/* Role Dropdown */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Select Role
-            </label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="w-full px-4 py-2.5 border rounded-xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              required
-            >
-              <option value="">-- Choose Role --</option>
-              <option value="superadmin">Super Admin</option>
-              <option value="admin">Admin</option>
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
-              <option value="parent">Parent</option>
-            </select>
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2.5 rounded-xl font-medium hover:bg-blue-700 transition duration-200"
-          >
-            Login
-          </button>
-        </form>
-
-        {/* Extras */}
-        <div className="flex justify-between items-center mt-5 text-sm text-gray-600">
-          <a href="#" className="hover:text-blue-600">
-            Forgot Password?
-          </a>
-          <a href="#" className="hover:text-blue-600">
-            Need Help?
-          </a>
         </div>
       </div>
     </div>
