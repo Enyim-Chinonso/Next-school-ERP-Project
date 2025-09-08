@@ -3,7 +3,8 @@
 import HeroAnimated from "./components/HeroAnimated";
 import Footer from "./components/Footer";
 import CTA from "./components/CTA";
-import Features from "./components/features";
+import Features from "../Features";
+// import Features from "./components/features";
 export default function Home() {
   return (
     <>

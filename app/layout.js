@@ -1,7 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "bootstrap/dist/css/bootstrap.min.css"; // ✅ CSS only
 import "./globals.css";
-
+import "bootstrap/dist/css/bootstrap.min.css"; // ✅ CSS only
 import Navbar from "./components/Navbar";
 import ClientProviders from "./components/ClientProviders";
 import BootstrapClient from "./BootstrapClient"; // ✅ now it will be found
