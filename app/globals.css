@@ -22,7 +22,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Remove Bootstrap's default body padding when navbar is fixed-top */
   padding-top: 62px !important;
 }
 
@@ -129,9 +128,6 @@ a {
 .sidebar-col.collapsed {
   width: 72px;
 }
-/* .sidebar-col.collapsed + .dashboard-main {
-  /* not needed for grid, but keeps transitions smooth if you tweak widths */
- */
 
 .sidebar {
   height: 100%;
