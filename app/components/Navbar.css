@@ -23,16 +23,16 @@
 
 /* Login button */
 .btn-login {
-  background-color: #ffdd57;
-  color: #1e3a8a;
+  background-color: #ffdd57 !important;
+  color: black !important;
   font-weight: bold;
   border-radius: 20px;
   padding: 6px 16px;
 }
 
 .btn-login:hover {
-  background-color: #facc15; /* slightly darker yellow */
-  color: #000;
+  background-color: #facc15 !important; /* slightly darker yellow */
+  color: #000 !important;
 }
 
 /* Prevent content from hiding behind fixed navbar */
