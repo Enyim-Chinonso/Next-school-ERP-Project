@@ -1,150 +1,199 @@
 // "use client";
 
-// import { useEffect, useState } from "react";
-// import gsap from "gsap";
+// import React, { useEffect, useRef, useState } from "react";
 // import Sidebar from "./Sidebar";
-// import DashboardNavbar from "./DashboardNavbar";
+// import Lenis from "@studio-freight/lenis";
+// import { gsap } from "gsap";
 
-// /**
-//  * Provide a role-specific menu per page, but a good default helps.
-//  */
-// const defaultMenu = [
-//   { href: "#", label: "Overview", icon: "bi-speedometer2" },
-//   { href: "#", label: "Users", icon: "bi-people" },
-//   { href: "#", label: "Classes", icon: "bi-book" },
-//   { href: "#", label: "Reports", icon: "bi-graph-up" },
-//   { href: "#", label: "Settings", icon: "bi-gear" },
-// ];
-
-// export default function DashboardLayout({ children, menu = defaultMenu }) {
+// export default function DashboardLayout({ children, role = "superadmin" }) {
 //   const [collapsed, setCollapsed] = useState(false);
+//   const lenisRef = useRef(null);
+//   const rafRef = useRef(null);
 
+//   // ✅ Initialize Lenis once
 //   useEffect(() => {
-//     gsap.from(".dashboard-main", {
-//       opacity: 0,
-//       y: 15,
-//       duration: 0.4,
-//       ease: "power2.out",
-//     });
+//     lenisRef.current = new Lenis({ duration: 1.2, smooth: true });
+
+//     function raf(time) {
+//       lenisRef.current.raf(time);
+//       rafRef.current = requestAnimationFrame(raf);
+//     }
+//     rafRef.current = requestAnimationFrame(raf);
+
+//     return () => {
+//       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+//       if (lenisRef.current) lenisRef.current.destroy();
+//     };
 //   }, []);
 
+//   // ✅ Animate whenever children (sub-page) changes
+//   useEffect(() => {
+//     const entryTween = gsap.from(".dash-animate", {
+//       opacity: 0,
+//       y: 20,
+//       duration: 0.6,
+//       stagger: 0.05,
+//       ease: "power3.out",
+//     });
+
+//     return () => entryTween.kill();
+//   }, [children]);
+
 //   return (
-//     <>
-//       {/* Desktop / Tablet Grid */}
-//       <div className={`dashboard-grid`}>
-//         <div className={`sidebar-col ${collapsed ? "collapsed" : ""} d-none d-md-block`}>
-//           <Sidebar collapsed={collapsed} menu={menu} />
-//         </div>
+//     <div className="d-flex min-vh-100">
+//       {/* Sidebar (collapsible & role-based) */}
+//       <Sidebar
+//         role={role}
+//         collapsed={collapsed}
+//         toggleSidebar={() => setCollapsed(!collapsed)}
+//       />
 
-//       <div className="dashboard-main">
-//           <DashboardNavbar onToggleSidebar={() => setCollapsed((v) => !v)} />
-//           <div className="p-3 p-md-4">{children}</div>
-//         </div>
-//       </div>
+//       {/* Main content */}
+//       <div className="flex-grow-1 d-flex flex-column">
+//         {/* Topbar */}
+//         <header className="d-flex align-items-center justify-content-between p-3 border-bottom bg-white dash-animate">
+//           {/* Sidebar toggle button (visible on mobile) */}
+//           <button
+//             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+//             className="btn btn-outline-secondary me-2 d-md-none"
+//             onClick={() => setCollapsed(!collapsed)}
+//           >
+//             ☰
+//           </button>
 
-//       {/* Mobile Offcanvas Sidebar */}
-//       <div
-//         className="offcanvas offcanvas-start"
-//         tabIndex="-1"
-//         id="mobileSidebar"
-//         aria-labelledby="mobileSidebarLabel"
-//       >
-//         <div className="offcanvas-header">
-//           <h5 className="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
-//           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-//         </div>
-//         <div className="offcanvas-body p-0">
-//           {/* Sidebar reused in offcanvas (not collapsed) */}
-//           <Sidebar collapsed={false} menu={menu} />
-//         </div>
+//           <h2 className="h5 mb-0">Dashboard</h2>
+
+//           {/* Profile / role indicator + Logout button */}
+//           <div className="d-flex align-items-center gap-3">
+//             <span className="text-muted small">{role.toUpperCase()}</span>
+//             <div
+//               className="rounded-circle bg-secondary"
+//               style={{ width: 36, height: 36 }}
+//             ></div>
+//             <button
+//               className="btn btn-sm btn-outline-danger"
+//               onClick={() => {
+//                 // 🔑 Add your logout logic here
+//                 console.log("Logging out...");
+//               }}
+//             >
+//               Logout
+//             </button>
+//           </div>
+//         </header>
+
+//         {/* Content area (critical for sub-pages) */}
+//         <main className="p-4 flex-grow-1 bg-light dash-animate">
+//           {children}
+//         </main>
 //       </div>
-//     </>
+//     </div>
 //   );
 // }
 
 
 
+
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Sidebar from "./Sidebar";
-import DashboardNavbar from "./DashboardNavbar";
 import Lenis from "@studio-freight/lenis";
-import gsap from "gsap";
+import { gsap } from "gsap";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({
+  children,
+  role = "superadmin",
+  pageTitle = "Dashboard", // ✅ Dynamic title
+}) {
   const [collapsed, setCollapsed] = useState(false);
+  const lenisRef = useRef(null);
+  const rafRef = useRef(null);
+  const contentRef = useRef(null); // ✅ Scoped GSAP animations
 
-  const menu = [
-   { href: "#", label: "Overview", icon: "bi-speedometer2" },
-   { href: "#", label: "Users", icon: "bi-people" },
-   { href: "#", label: "Classes", icon: "bi-book" },
-   { href: "#", label: "Reports", icon: "bi-graph-up" },
-   { href: "#", label: "Settings", icon: "bi-gear" },
-    ];
-    
-    // { href: "/dashboard", label: "Home", icon: "bi-house" },
-    // { href: "/dashboard/features", label: "Features", icon: "bi-grid" },
-    // { href: "/dashboard/about", label: "About", icon: "bi-info-circle" },
-    // { href: "/dashboard/contact", label: "Contact", icon: "bi-envelope" },
-    // { href: "/dashboard/login", label: "Login", icon: "bi-box-arrow-in-right" },
- 
-
+  // ✅ Initialize Lenis once
   useEffect(() => {
-    // Initialize Lenis (smooth scrolling)
-    const lenis = new Lenis({
-      duration: 1.2, // smoothness speed
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easing
-    });
+    lenisRef.current = new Lenis({ duration: 1.2, smooth: true });
 
     function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      lenisRef.current.raf(time);
+      rafRef.current = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
-
-    // Animate page content with GSAP
-    gsap.from("main", {
-      opacity: 0,
-      y: 30,
-      duration: 0.6,
-      ease: "power2.out",
-    });
+    rafRef.current = requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy();
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (lenisRef.current) lenisRef.current.destroy();
     };
   }, []);
 
+  // ✅ Animate content on sub-page change
+  useEffect(() => {
+    if (!contentRef.current) return;
+    const entryTween = gsap.from(contentRef.current.children, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      stagger: 0.05,
+      ease: "power3.out",
+    });
+
+    return () => entryTween.kill();
+  }, [children]);
+
   return (
-    <div className="d-flex">
-      {/* Sidebar (desktop) */}
-      <Sidebar collapsed={collapsed} menu={menu} />
+    <div className="d-flex min-vh-100">
+      {/* Sidebar (collapsible & role-based) */}
+      <Sidebar
+        role={role}
+        collapsed={collapsed}
+        toggleSidebar={() => setCollapsed(!collapsed)}
+      />
 
-      {/* Mobile offcanvas sidebar */}
-      <div
-        className="offcanvas offcanvas-start bg-dark text-white"
-        tabIndex="-1"
-        id="mobileSidebar"
-      >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title">Menu</h5>
+      {/* Main content */}
+      <div className="flex-grow-1 d-flex flex-column">
+        {/* Topbar */}
+        <header className="d-flex align-items-center justify-content-between p-3 border-bottom bg-white shadow-sm">
+          {/* Sidebar toggle button (now for both mobile + desktop) */}
           <button
-            type="button"
-            className="btn-close btn-close-white"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body">
-          <Sidebar collapsed={false} menu={menu} />
-        </div>
-      </div>
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            aria-expanded={!collapsed}
+            className="btn btn-outline-secondary me-2"
+            onClick={() => setCollapsed(!collapsed)}
+          >
+            ☰
+          </button>
 
-      {/* Page content */}
-      <div className="flex-grow-1">
-        <DashboardNavbar onToggleSidebar={() => setCollapsed(!collapsed)} />
-        <main className="p-4">{children}</main>
+          {/* Dynamic Page Title */}
+          <h2 className="h5 mb-0">{pageTitle}</h2>
+
+          {/* Profile / role indicator + Logout button */}
+          <div className="d-flex align-items-center gap-3">
+            <span className="text-muted small">{role.toUpperCase()}</span>
+            <div
+              className="rounded-circle bg-secondary"
+              style={{ width: 36, height: 36 }}
+            ></div>
+            <button
+              className="btn btn-sm btn-outline-danger"
+              onClick={() => {
+                // 🔑 Add your logout logic here
+                console.log("Logging out...");
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        </header>
+
+        {/* Content area (critical for sub-pages) */}
+        <main
+          ref={contentRef}
+          className="p-4 flex-grow-1 bg-light"
+          style={{ overflowX: "hidden" }}
+        >
+          {children}
+        </main>
       </div>
     </div>
   );

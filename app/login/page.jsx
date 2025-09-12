@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // map each role to its dashboard route
 const ROLE_ROUTES = {
-  "super-admin": "/super-admin",
+  superadmin : "/dashboard/superadmin",
   admin: "/admin",
   teacher: "/teacher",
   student: "/student",
@@ -74,7 +74,7 @@ export default function LoginPage() {
                 required
               >
                 <option value="">-- Choose role --</option>
-                <option value="super-admin">Super Admin</option>
+                <option value="superadmin">Super Admin</option>
                 <option value="admin">Admin</option>
                 <option value="teacher">Teacher</option>
                 <option value="student">Student</option>
