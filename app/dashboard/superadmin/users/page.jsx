@@ -1,74 +1,3 @@
-// // /app/dashboard/superadmin/users/page.jsx
-// "use client";
-// import React from "react";
-// // import useGsapAnimations from "@/hooks/useGsapAnimations";
-
-// import useGsapAnimations from "../../hooks/useGsapAnimations";
-
-// export default function UsersPage() {
-//   useGsapAnimations();
-
-//   const users = [
-//     { name: "John Doe", role: "Admin", status: "Active" },
-//     { name: "Jane Smith", role: "Teacher", status: "Inactive" },
-//   ];
-
-//   return (
-//     <>
-//       <section className="mb-4 dash-animate d-flex justify-content-between">
-//         <h1 className="h4">Users</h1>
-//         <button className="btn btn-warning">+ Add User</button>
-//       </section>
-
-//       <section className="card shadow-sm p-3 dash-animate">
-//         <h3 className="h6 mb-3">All Users</h3>
-//         <div className="table-responsive">
-//           <table className="table table-hover table-sm">
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Role</th>
-//                 <th>Status</th>
-//                 <th>Actions</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {users.map((u) => (
-//                 <tr key={u.name}>
-//                   <td>{u.name}</td>
-//                   <td>{u.role}</td>
-//                   <td>
-//                     <span
-//                       className={`badge ${
-//                         u.status === "Active"
-//                           ? "bg-success"
-//                           : "bg-secondary"
-//                       }`}
-//                     >
-//                       {u.status}
-//                     </span>
-//                   </td>
-//                   <td>
-//                     <button className="btn btn-sm btn-outline-warning me-2">
-//                       Edit
-//                     </button>
-//                     <button className="btn btn-sm btn-outline-danger">
-//                       Remove
-//                     </button>
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
-
-
-
 "use client";
 import React from "react";
 // import useGsapAnimations from "../../../hooks/useGsapAnimations";
@@ -79,7 +8,18 @@ export default function UsersPage() {
   useGsapAnimations();
 
   const users = [
-    { name: "John Doe", role: "Admin", status: "Active" },
+    { name: "Abisherk Pandey", role: "Admin", status: "Active" },
+    { name: "Aritra Chakraborty", role: "Admin", status: "Active" },
+    { name: "Anshika Aggarwal", role: "Admin", status: "Active" },
+    { name: "Arpit ", role: "Teacher", status: "Active" },
+    { name: "Priyanshu Patel", role: "Teacher", status: "Active" },
+    { name: "Ankit Kumar", role: "Student", status: "Active" },
+    { name: "Riya Sigh", role: "Stdent", status: "Active" },
+    { name: "Subham Jha", role: "Student", status: "Active" },
+    { name: "Sachin Gupta", role: "Teacher", status: "Inactive" },
+    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
+    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
+    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
     { name: "Jane Smith", role: "Teacher", status: "Inactive" },
   ];
 

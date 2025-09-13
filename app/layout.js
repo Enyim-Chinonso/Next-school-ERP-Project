@@ -5,9 +5,16 @@ import Navbar from "./components/Navbar";
 import ClientProviders from "./components/ClientProviders";
 import BootstrapClient from "./BootstrapClient"; // ✅ now it will be found
 
+// ✅ SEO metadata
 export const metadata = {
   title: "School ERP",
   description: "Modern ERP for schools",
+};
+
+// ✅ Mobile responsiveness
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function RootLayout({ children }) {

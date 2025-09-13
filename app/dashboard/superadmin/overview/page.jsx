@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-// import useGsapAnimations from "../../../hooks/useGsapAnimations";
 import useGsapAnimations from "@/hooks/useGsapAnimations";
-
 
 export default function OverviewPage() {
   useGsapAnimations();
@@ -14,20 +12,20 @@ export default function OverviewPage() {
   ];
 
   return (
-    <>
+    <div className="container-fluid">
       {/* Header */}
-      <section className="mb-4 dash-animate d-flex justify-content-between align-items-center">
+      <section className="mb-4 dash-animate d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <div>
           <h1 className="h4 mb-1">Super Admin Overview</h1>
           <p className="text-muted small">System health and controls</p>
         </div>
-        <button className="btn btn-warning">+ New School</button>
+        <button className="btn btn-warning w-100 w-md-auto">+ New School</button>
       </section>
 
       {/* Stats */}
       <section className="row g-3 mb-4">
         {stats.map((s) => (
-          <div key={s.label} className="col-md-4 dash-animate">
+          <div key={s.label} className="col-12 col-sm-6 col-md-4 dash-animate">
             <div className="card shadow-sm border-0 h-100">
               <div className="card-body d-flex justify-content-between align-items-center">
                 <div>
@@ -57,7 +55,7 @@ export default function OverviewPage() {
                   <th>Name</th>
                   <th>Location</th>
                   <th>Students</th>
-                  <th>Actions</th>
+                  <th className="text-end">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,11 +63,11 @@ export default function OverviewPage() {
                   <td>Bright Future Academy</td>
                   <td>Abuja</td>
                   <td>420</td>
-                  <td>
-                    <button className="btn btn-sm btn-outline-primary me-2">
+                  <td className="text-end">
+                    <button className="btn btn-sm btn-outline-primary me-2 mb-1">
                       Manage
                     </button>
-                    <button className="btn btn-sm btn-outline-danger">
+                    <button className="btn btn-sm btn-outline-danger mb-1">
                       Disable
                     </button>
                   </td>
@@ -78,11 +76,11 @@ export default function OverviewPage() {
                   <td>Greenfield High</td>
                   <td>Lagos</td>
                   <td>310</td>
-                  <td>
-                    <button className="btn btn-sm btn-outline-primary me-2">
+                  <td className="text-end">
+                    <button className="btn btn-sm btn-outline-primary me-2 mb-1">
                       Manage
                     </button>
-                    <button className="btn btn-sm btn-outline-danger">
+                    <button className="btn btn-sm btn-outline-danger mb-1">
                       Disable
                     </button>
                   </td>
@@ -92,6 +90,6 @@ export default function OverviewPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

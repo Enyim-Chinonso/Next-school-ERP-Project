@@ -7,8 +7,8 @@ import Link from "next/link";
 // map each role to its dashboard route
 const ROLE_ROUTES = {
   superadmin : "/dashboard/superadmin",
-  admin: "/admin",
-  teacher: "/teacher",
+  admin: "/dashboard/admin",
+  teacher: "/dashboard/teacher",
   student: "/student",
   parent: "/parent",
 };

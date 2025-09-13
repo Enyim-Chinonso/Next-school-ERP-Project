@@ -1,122 +1,3 @@
-// // /app/dashboard/superadmin/schools/page.jsx
-// "use client";
-// import React from "react";
-// import DashboardLayout from "../../../components/DashboardLayout";
-// import useGsapAnimations from "../../../hooks/useGsapAnimations";
-
-// export default function SchoolsPage() {
-//   useGsapAnimations();
-
-//   const schools = [
-//     { name: "Bright Future Academy", location: "Abuja", students: 420 },
-//     { name: "Greenfield High", location: "Lagos", students: 310 },
-//   ];
-
-//   return (
-//     <DashboardLayout role="superadmin">
-//       <section className="mb-4 dash-animate">
-//         <h1 className="h4">Schools Management</h1>
-//         <button className="btn btn-warning">+ Add School</button>
-//       </section>
-
-//       <section className="card shadow-sm p-3 dash-animate">
-//         <h3 className="h6 mb-3">Registered Schools</h3>
-//         <div className="table-responsive">
-//           <table className="table table-sm">
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Location</th>
-//                 <th>Students</th>
-//                 <th>Actions</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {schools.map((s) => (
-//                 <tr key={s.name}>
-//                   <td>{s.name}</td>
-//                   <td>{s.location}</td>
-//                   <td>{s.students}</td>
-//                   <td>
-//                     <button className="btn btn-sm btn-outline-warning me-2">
-//                       Manage
-//                     </button>
-//                     <button className="btn btn-sm btn-outline-danger">
-//                       Disable
-//                     </button>
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </section>
-//     </DashboardLayout>
-//   );
-// }
-
-
-// "use client";
-// import React from "react";
-// // import useGsapAnimations from "@/hooks/useGsapAnimations";
-
-// import useGsapAnimations from "../../hooks/useGsapAnimations";
-
-// export default function SchoolsPage() {
-//   useGsapAnimations();
-
-//   const schools = [
-//     { name: "Bright Future Academy", location: "Abuja", students: 420 },
-//     { name: "Greenfield High", location: "Lagos", students: 310 },
-//   ];
-
-//   return (
-//     <>
-//       <section className="mb-4 dash-animate">
-//         <h1 className="h4">Schools Management</h1>
-//         <button className="btn btn-warning">+ Add School</button>
-//       </section>
-
-//       <section className="card shadow-sm p-3 dash-animate">
-//         <h3 className="h6 mb-3">Registered Schools</h3>
-//         <div className="table-responsive">
-//           <table className="table table-sm">
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Location</th>
-//                 <th>Students</th>
-//                 <th>Actions</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {schools.map((s) => (
-//                 <tr key={s.name}>
-//                   <td>{s.name}</td>
-//                   <td>{s.location}</td>
-//                   <td>{s.students}</td>
-//                   <td>
-//                     <button className="btn btn-sm btn-outline-warning me-2">
-//                       Manage
-//                     </button>
-//                     <button className="btn btn-sm btn-outline-danger">
-//                       Disable
-//                     </button>
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
-
-
-
-
 "use client";
 import React from "react";
 // import useGsapAnimations from "../../../hooks/useGsapAnimations";
@@ -127,8 +8,16 @@ export default function SchoolsPage() {
   useGsapAnimations();
 
   const schools = [
-    { name: "Bright Future Academy", location: "Abuja", students: 420 },
-    { name: "Greenfield High", location: "Lagos", students: 310 },
+    { name: "Bright Future Academy", location: "Abuja", students: 250 },
+    { name: "EBSU Staff Nursery/Primary School", location: "Abakaliki", students: 200 },
+    { name: "College of the Imaculate Conception (CIC)", location: "Enugu", students: 600 },
+    { name: "Queens' School Enugu", location: "Enugu", students: 700 },
+    { name: "Holy Rosary College", location: "Enugu", students: 400 },
+    { name: "Hope High British College", location: "Abakaliki", students: 300 },
+    { name: "Federal Government College", location: "Okposi", students: 500 },
+    { name: "Ebonyi State University", location: "Abakaliki", students: 1000 },
+    { name: "University of Nigeria", location: "Nsukka", students: 2000 },
+    { name: "Enugu State University of Science and Technology", location: "Agbani", students: 1000 },
   ];
 
   return (

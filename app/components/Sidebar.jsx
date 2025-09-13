@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation"; // ✅ router for logout redirect
+import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import Lenis from "@studio-freight/lenis";
 
 export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar }) {
   const pathname = usePathname();
-  const router = useRouter(); // ✅ initialize router
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const [show, setShow] = useState(false);
 
-  // --- Lenis for smooth scrolling ---
+  // Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time) {
@@ -21,7 +21,7 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
     requestAnimationFrame(raf);
   }, []);
 
-  // --- detect mobile viewport ---
+  // Detect mobile viewport
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth < 768);
@@ -31,7 +31,7 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // --- GSAP animation for sidebar (mobile only) ---
+  // GSAP sidebar animation (mobile only)
   useEffect(() => {
     if (isMobile && show) {
       gsap.fromTo(
@@ -45,7 +45,7 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
   // Role-based links
   const links = {
     superadmin: [
-      { label: "Overview", path: "/dashboard/superadmin/overview" },
+      { label: "Overview", path: "/dashboard/superadmin" },
       { label: "Schools", path: "/dashboard/superadmin/schools" },
       { label: "Users", path: "/dashboard/superadmin/users" },
       { label: "Settings", path: "/dashboard/superadmin/settings" },
@@ -57,16 +57,19 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
       { label: "Finance", path: "/dashboard/admin/finance" },
     ],
     teacher: [
+      { label: "Overview", path: "/dashboard/teacher" },
       { label: "My Classes", path: "/dashboard/teacher/classes" },
       { label: "Attendance", path: "/dashboard/teacher/attendance" },
       { label: "Grades", path: "/dashboard/teacher/grades" },
     ],
     student: [
+      { label: "Overview", path: "/dashboard/student" },
       { label: "Subjects", path: "/dashboard/student/subjects" },
       { label: "Results", path: "/dashboard/student/results" },
       { label: "Attendance", path: "/dashboard/student/attendance" },
     ],
     parent: [
+      { label: "Overview", path: "/dashboard/parent" },
       { label: "Children", path: "/dashboard/parent/children" },
       { label: "Reports", path: "/dashboard/parent/reports" },
     ],
@@ -74,12 +77,9 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
 
   const items = links[role] || [];
 
-  // ✅ Logout handler
+  // Logout handler
   const handleLogout = () => {
-    // Clear tokens, cookies, or auth context here
     console.log("Logging out...");
-
-    // Redirect to login page
     router.push("/login");
   };
 
@@ -138,7 +138,6 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
               </ul>
 
               <div className="mt-auto">
-                {/* ✅ Logout button with handler */}
                 <button onClick={handleLogout} className="btn btn-danger w-100">
                   Logout
                 </button>
@@ -211,7 +210,6 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
       <div className="p-3 border-top border-secondary">
         {!collapsed && (
           <>
-            {/* ✅ Logout button with handler */}
             <button onClick={handleLogout} className="btn btn-danger w-100 mb-2">
               Logout
             </button>
