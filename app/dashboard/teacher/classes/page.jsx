@@ -3,9 +3,11 @@ import React from "react";
 
 export default function TeacherClassesPage() {
   const classes = [
-    { name: "Math - JSS2", students: 30 },
-    { name: "Physics - SS1", students: 25 },
-    { name: "Chemistry - SS2", students: 28 },
+    { name: "Mathematics - 100 Level", students: 800 },
+    { name: "Physics - 400 Level", students: 600 },
+    { name: "Chemistry - 200 Level", students: 500 },
+    { name: "Computer science - 500 Level", students: 1000 },
+    { name: "Literature - 200 Level", students: 1500 },
   ];
 
   return (

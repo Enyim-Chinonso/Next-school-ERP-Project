@@ -4,10 +4,11 @@ import React, { useState } from "react";
 export default function TeacherGradesPage() {
   // Sample student list (later can be fetched from DB/API)
   const initialStudents = [
-    { id: 1, name: "John Doe", grade: "" },
-    { id: 2, name: "Jane Smith", grade: "" },
-    { id: 3, name: "Michael Johnson", grade: "" },
-    { id: 4, name: "Mary Adams", grade: "" },
+    { id: 1, name: "Onyinyechi Francess", grade: "" },
+    { id: 2, name: "Chinaecherem Divine-favour", grade: "" },
+    { id: 3, name: "Onu Chinememma", grade: "" },
+    { id: 4, name: "Igwesi Peace", grade: "" },
+    { id: 5, name: "Ikwueze Jane", grade: "" },
   ];
 
   const [students, setStudents] = useState(initialStudents);

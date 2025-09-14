@@ -6,9 +6,12 @@ export default function TeachersPage() {
   useGsapAnimations();
 
   const teachers = [
-    { name: "John Doe", subject: "Mathematics", classes: 5 },
-    { name: "Jane Smith", subject: "English", classes: 3 },
-    { name: "Samuel Johnson", subject: "Biology", classes: 4 },
+    { name: "Chike Obi", subject: "Mathematics", classes: 5 },
+    { name: "Wole Soyinka", subject: "Biology", classes: 3 },
+    { name: "Chinua Achebe", subject: "Literature", classes: 4 },
+    { name: "Enyim Chinonso", subject: "Computer science", classes: 6 },
+    { name: "Abanokwu Chigozie", subject: "English Language", classes: 6 },
+    { name: "Ezeali Daniel", subject: "Algorithm", classes: 4 },
   ];
 
   return (

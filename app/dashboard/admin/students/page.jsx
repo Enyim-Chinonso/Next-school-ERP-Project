@@ -6,9 +6,14 @@ export default function StudentsPage() {
   useGsapAnimations();
 
   const students = [
-    { name: "Alice Brown", grade: "SS2", attendance: "92%" },
-    { name: "Michael Lee", grade: "JSS3", attendance: "88%" },
-    { name: "Sophia White", grade: "SS1", attendance: "95%" },
+    { name: "Chinaecherem Divine-favour", grade: "200 Level", attendance: "92%" },
+    { name: "Onu Chinememma", grade: "200 Level", attendance: "90%" },
+    { name: "Abonyi Peace", grade: "100 Level", attendance: "40%" },
+    { name: "Onyinyechi Francess", grade: "500 Level", attendance: "98%" },
+    { name: "Ikwueze Jane", grade: "300 Level", attendance: "66%" },
+    { name: "Igwesi Peace", grade: "100 Level", attendance: "80%" },
+    { name: "Cynthia Ukamaka", grade: "500 Level", attendance: "80%" },
+    { name: "Eze Chibuike", grade: "Form 6", attendance: "78%" },
   ];
 
   return (

@@ -3,8 +3,11 @@ import React from "react";
 
 export default function TeacherAssignmentsPage() {
   const assignments = [
-    { title: "Algebra Homework", class: "JSS2", due: "2025-09-20" },
-    { title: "Physics Practical", class: "SS1", due: "2025-09-22" },
+    { title: "Algorithm", class: "200 Level", due: "2025-09-20" },
+    { title: "Programming and Coding", class: "500 Level", due: "2025-09-22" },
+    { title: "English Literature", class: "400 Level", due: "2025-09-22" },
+    { title: "Law of Gravity", class: "100 Level", due: "2025-09-22" },
+    { title: "Reproduction", class: "300 Level", due: "2025-09-22" },
   ];
 
   return (

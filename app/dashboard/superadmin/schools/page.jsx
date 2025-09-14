@@ -10,7 +10,7 @@ export default function SchoolsPage() {
   const schools = [
     { name: "Bright Future Academy", location: "Abuja", students: 250 },
     { name: "EBSU Staff Nursery/Primary School", location: "Abakaliki", students: 200 },
-    { name: "College of the Imaculate Conception (CIC)", location: "Enugu", students: 600 },
+    { name: "College of the Immaculate Conception (CIC)", location: "Enugu", students: 600 },
     { name: "Queens' School Enugu", location: "Enugu", students: 700 },
     { name: "Holy Rosary College", location: "Enugu", students: 400 },
     { name: "Hope High British College", location: "Abakaliki", students: 300 },

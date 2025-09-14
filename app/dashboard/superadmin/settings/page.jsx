@@ -32,7 +32,8 @@ export default function SettingsPage() {
               <input
                 type="email"
                 className="form-control"
-                defaultValue="support@schoolerp.com"
+                placeholder="Company's email adress"
+                // defaultValue="support@schoolerp.com"
               />
             </div>
             <div className="col-12">

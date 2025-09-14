@@ -4,10 +4,13 @@ import React, { useState } from "react";
 export default function TeacherAttendancePage() {
   // Sample student list (later can be fetched from DB/API)
   const initialStudents = [
-    { id: 1, name: "John Doe", present: false },
-    { id: 2, name: "Jane Smith", present: false },
-    { id: 3, name: "Michael Johnson", present: false },
-    { id: 4, name: "Mary Adams", present: false },
+    { id: 1, name: "Onu Chinememma", present: true },
+    { id: 2, name: "Chinaecherem Divine-favour", present: true },
+    { id: 3, name: "Cynthia Ukamaka", present: true },
+    { id: 4, name: "Riya Singh", present: true },
+    { id: 5, name: "Abonyi Peace", present: false },
+    { id: 6, name: "Onyinyechi Francess", present: true },
+    { id: 7, name: "Ikwueze Jane", present: false },
   ];
 
   const [students, setStudents] = useState(initialStudents);
@@ -63,10 +66,7 @@ export default function TeacherAttendancePage() {
       </div>
 
       <div className="mt-3">
-        <button
-          className="btn btn-primary"
-          onClick={handleSubmit}
-        >
+        <button className="btn btn-primary" onClick={handleSubmit}>
           Submit Attendance
         </button>
       </div>

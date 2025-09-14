@@ -61,6 +61,7 @@ export default function Sidebar({ role = "superadmin", collapsed, toggleSidebar 
       { label: "My Classes", path: "/dashboard/teacher/classes" },
       { label: "Attendance", path: "/dashboard/teacher/attendance" },
       { label: "Grades", path: "/dashboard/teacher/grades" },
+      { label: "Assignments", path: "/dashboard/teacher/assignments" },
     ],
     student: [
       { label: "Overview", path: "/dashboard/student" },
