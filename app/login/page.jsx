@@ -9,8 +9,8 @@ const ROLE_ROUTES = {
   superadmin : "/dashboard/superadmin",
   admin: "/dashboard/admin",
   teacher: "/dashboard/teacher",
-  student: "/student",
-  parent: "/parent",
+  student: "/dashboard/student",
+  parent: "/dashboard/parent",
 };
 
 export default function LoginPage() {
