@@ -7,15 +7,16 @@ export default function StudentSubjectsPage() {
   useGsapAnimations();
 
   const subjects = [
-    { title: "Mathematics", instructor: "Mr. A. Okafor", schedule: "Mon, Wed • 09:00" },
+    { title: "Mathematics", instructor: "Prof. Chike Obi", schedule: "Mon, Wed • 09:00" },
     { title: "Biology", instructor: "Mrs. E. Nwosu", schedule: "Tue, Thu • 11:00" },
-    { title: "English", instructor: "Ms. T. Ibe", schedule: "Fri • 10:00" },
+    { title: "Physics", instructor: "Mrs. T. Ibe", schedule: "Fri • 10:00" },
+    { title: "Computer science", instructor: "Dr. Enyim C. A.", schedule: "Fri • 10:00" },
+    { title: "English language", instructor: "Prof. T. C. Enyi", schedule: "Fri • 10:00" },
   ];
 
   return (
     <>
       <section className="mb-4 dash-animate d-flex justify-content-between align-items-center">
-      {/* <section className="dash-animate"> */}
         <h1 className="h5 mb-0">Subjects</h1>
         <button className="btn btn-outline-primary">Browse Catalog</button>
       </section>

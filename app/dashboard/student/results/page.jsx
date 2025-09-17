@@ -7,9 +7,10 @@ export default function StudentResultsPage() {
   useGsapAnimations();
 
   const results = [
-    { course: "Mathematics", score: 86, grade: "B" },
-    { course: "Biology", score: 91, grade: "A" },
-    { course: "English", score: 78, grade: "C" },
+    { course: "Mathematics", score: 55, grade: "c" },
+    { course: "Biology", score: 45, grade: "D" },
+    { course: "English language", score: 62, grade: "B" },
+    { course: "Computer science", score: 78, grade: "A" },
   ];
 
   return (
