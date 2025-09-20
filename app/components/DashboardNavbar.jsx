@@ -14,7 +14,7 @@ export default function DashboardNavbar({ onToggleSidebar }) {
             <i className="bi bi-layout-sidebar-inset-reverse"></i>
           </button>
 
-          {/* Mobile: open offcanvas */}
+          {/* Mobile view */}
           <button
             className="btn btn-outline-primary d-inline-flex d-md-none"
             type="button"

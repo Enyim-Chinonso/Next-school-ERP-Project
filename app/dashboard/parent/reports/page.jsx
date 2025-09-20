@@ -13,7 +13,7 @@ export default function ParentReportsPage() {
       attendance: "96%",
     },
     {
-      child: "Divine-favour Chinaecherem",
+      child: "Divine-favour Chinecherem",
       term: "First Term 2025",
       grade: "B+",
       attendance: "89%",

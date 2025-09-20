@@ -1,4 +1,3 @@
-// /app/dashboard/student/subjects/page.jsx
 "use client";
 import React from "react";
 import useGsapAnimations from "@/hooks/useGsapAnimations";

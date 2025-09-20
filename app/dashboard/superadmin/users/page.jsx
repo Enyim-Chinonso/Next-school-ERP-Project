@@ -11,16 +11,13 @@ export default function UsersPage() {
     { name: "Abisherk Pandey", role: "Admin", status: "Active" },
     { name: "Aritra Chakraborty", role: "Admin", status: "Active" },
     { name: "Anshika Aggarwal", role: "Admin", status: "Active" },
-    { name: "Arpit ", role: "Teacher", status: "Active" },
+    { name: "Arpit Ranjan", role: "Teacher", status: "Active" },
     { name: "Priyanshu Patel", role: "Teacher", status: "Active" },
     { name: "Ankit Kumar", role: "Student", status: "Active" },
     { name: "Riya Sigh", role: "Stdent", status: "Active" },
     { name: "Subham Jha", role: "Student", status: "Active" },
-    { name: "Sachin Gupta", role: "Teacher", status: "Inactive" },
-    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
-    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
-    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
-    { name: "Jane Smith", role: "Teacher", status: "Inactive" },
+    { name: "Sachin Gupta", role: "Student", status: "Inactive" },
+    { name: "Gulshan Anand", role: "Student", status: "Inactive" },
   ];
 
   return (

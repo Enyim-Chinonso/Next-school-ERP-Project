@@ -1,19 +1,24 @@
 "use client";
-import { useEffect } from "react";
-import gsap from "gsap";
+ import { useEffect } from "react";
+ import gsap from "gsap";
+
 
 export default function CTA() {
   useEffect(() => {
     gsap.from(".cta-box", {
       opacity: 0,
-      scale: 0.8,
+      scale: 0.9,
       duration: 1,
       ease: "back.out(1.7)",
+      scrollTrigger: { trigger: ".cta-box", start: "top 85%" },
     });
   }, []);
 
   return (
-    <section className="py-5 text-white text-center"  style={{ backgroundColor: "rgb(30,58,138)"  }} >
+    <section
+      className="py-5 text-white text-center"
+      style={{ backgroundColor: "rgb(30,58,138)" }}
+    >
       <div className="container">
         <div className="cta-box p-5 rounded-4 shadow-lg">
           <h2 className="fw-bold mb-3">Ready to Modernize Your School?</h2>
@@ -28,3 +33,5 @@ export default function CTA() {
     </section>
   );
 }
+
+

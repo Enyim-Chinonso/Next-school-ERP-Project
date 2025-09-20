@@ -19,7 +19,7 @@ export default function StudentOverviewPage() {
   return (
     <>
       {/* Header */}
-      <section className="mb-4 dash-animate d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+      <section className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <div>
           <h1 className="h4 mb-1">Welcome back</h1>
           <p className="text-muted small">

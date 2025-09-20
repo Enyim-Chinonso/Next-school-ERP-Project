@@ -6,8 +6,8 @@ export default function ParentChildrenPage() {
   useGsapAnimations();
 
   const wards = [
-    { id: 1, name: "Onu Chinememma", grade: "Grade 10", age: 15 },
-    { id: 2, name: "Divine-favour Chinaecherem", grade: "Grade 8", age: 13 },
+    { id: 1, name: "Onu Chinememma", grade: "Grade 10", age: 18 },
+    { id: 2, name: "Divine-favour Chinecherem", grade: "Grade 8", age: 17 },
   ];
 
   return (

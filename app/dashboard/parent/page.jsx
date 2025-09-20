@@ -7,18 +7,18 @@ export default function ParentOverviewPage() {
 
   const wards = [
     { name: "Chinememma Onu", grade: "Grade 10", attendance: "95%" },
-    { name: "Divine-favour Chinaecherem", grade: "Grade 8", attendance: "89%" },
+    { name: "Divine-favour Chinecherem", grade: "Grade 8", attendance: "89%" },
   ];
 
   const notifications = [
-    { title: "Parent-Teacher Meeting", date: "2025-09-20" },
+    { title: "Parent-Teacher Meeting (PTA)", date: "2025-09-26" },
     { title: "Fee Payment Reminder", date: "2025-09-25" },
   ];
 
   return (
     <>
       {/* Header */}
-      <section className="mb-4 dash-animate">
+      <section className="mb-4">
         <h1 className="h4">Welcome, Parent</h1>
         <p className="text-muted small">
           Here’s an overview of your wards’ academic progress and important updates.

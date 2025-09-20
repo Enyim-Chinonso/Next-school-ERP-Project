@@ -14,8 +14,8 @@ export default function AdminPage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="mb-4 dash-animate d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+      {/* Header (always visible, not animated) */}
+      <section className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <div>
           <h1 className="h4 mb-1">Admin Overview</h1>
           <p className="text-muted small">School administration dashboard</p>
@@ -23,7 +23,7 @@ export default function AdminPage() {
         <button className="btn btn-primary">+ Add Teacher</button>
       </section>
 
-      {/* Stats */}
+      {/* Stats (animated) */}
       <section className="row g-3 mb-4">
         {stats.map((s) => (
           <div key={s.label} className="col-12 col-md-4 dash-animate">
@@ -45,7 +45,7 @@ export default function AdminPage() {
         ))}
       </section>
 
-      {/* Teachers List */}
+      {/* Teachers List (animated) */}
       <section className="card shadow-sm dash-animate">
         <div className="card-body">
           <h3 className="h6 mb-3">Recent Teachers</h3>
@@ -61,7 +61,7 @@ export default function AdminPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>John Doe</td>
+                  <td>Chike Obi</td>
                   <td>Mathematics</td>
                   <td>5</td>
                   <td>
@@ -74,7 +74,7 @@ export default function AdminPage() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Jane Smith</td>
+                  <td>Abanokwu Chigozie</td>
                   <td>English</td>
                   <td>3</td>
                   <td>

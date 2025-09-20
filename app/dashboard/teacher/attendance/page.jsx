@@ -27,7 +27,7 @@ export default function TeacherAttendancePage() {
   // Submit records
   const handleSubmit = () => {
     console.log("Attendance records:", students);
-    alert("✅ Attendance submitted successfully!");
+    alert(" Attendance submitted successfully!");
   };
 
   return (
