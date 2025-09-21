@@ -15,7 +15,7 @@ export default function StudentResultsPage() {
 
   return (
     <>
-      <section className="mb-4 dash-animate d-flex justify-content-between align-items-center">
+      <section className="mb-4 d-flex justify-content-between align-items-center">
         <h1 className="h5 mb-0">Results</h1>
         <button className="btn btn-outline-primary">Download Transcript</button>
       </section>

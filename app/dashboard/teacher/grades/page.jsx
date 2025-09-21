@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 
 export default function TeacherGradesPage() {
-  // Sample student list (later can be fetched from DB/API)
   const initialStudents = [
     { id: 1, name: "Onyinyechi Francess", grade: "" },
     { id: 2, name: "Chinaecherem Divine-favour", grade: "" },

@@ -23,7 +23,7 @@ export default function UsersPage() {
   return (
     <>
       {/* Header */}
-      <section className="mb-4 dash-animate d-flex justify-content-between align-items-center">
+      <section className="mb-4 d-flex justify-content-between align-items-center">
         <h1 className="h4 mb-0">Users</h1>
         <button className="btn btn-warning">+ Add User</button>
       </section>

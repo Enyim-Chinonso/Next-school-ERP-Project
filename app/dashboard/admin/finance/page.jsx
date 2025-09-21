@@ -14,7 +14,7 @@ export default function FinancePage() {
   return (
     <>
       {/* Header */}
-      <section className="mb-4 dash-animate d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+      <section className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <h1 className="h4 mb-0">Finance Reports</h1>
         <button className="btn btn-warning">+ New Report</button>
       </section>

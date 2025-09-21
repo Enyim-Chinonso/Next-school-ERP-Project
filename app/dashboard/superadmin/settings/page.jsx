@@ -10,7 +10,7 @@ export default function SettingsPage() {
   return (
     <>
       {/* Header */}
-      <section className="mb-4 dash-animate">
+      <section className="mb-4">
         <h1 className="h4 mb-1">System Settings</h1>
         <p className="text-muted small">Control system-wide configurations</p>
       </section>

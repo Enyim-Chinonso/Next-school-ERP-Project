@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 
 export default function TeacherAttendancePage() {
-  // Sample student list (later can be fetched from DB/API)
   const initialStudents = [
     { id: 1, name: "Onu Chinememma", present: true },
     { id: 2, name: "Chinaecherem Divine-favour", present: true },

@@ -15,7 +15,7 @@ export default function StudentAttendancePage() {
 
   return (
     <>
-      <section className="mb-4 dash-animate d-flex justify-content-between align-items-center">
+      <section className="mb-4 d-flex justify-content-between align-items-center">
         <h1 className="h5 mb-0">Attendance</h1>
         <div className="text-end">
           <div className="small text-muted">Attendance rate</div>
