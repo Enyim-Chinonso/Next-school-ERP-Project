@@ -1,4 +1,3 @@
-// /app/dashboard/student/attendance/page.jsx
 "use client";
 import React from "react";
 import useGsapAnimations from "@/hooks/useGsapAnimations";
@@ -14,7 +13,7 @@ export default function StudentAttendancePage() {
   ];
 
   return (
-    <>
+    <div>
       <section className="mb-4 d-flex justify-content-between align-items-center">
         <h1 className="h5 mb-0">Attendance</h1>
         <div className="text-end">
@@ -50,6 +49,6 @@ export default function StudentAttendancePage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

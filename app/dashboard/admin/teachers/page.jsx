@@ -15,7 +15,7 @@ export default function TeachersPage() {
   ];
 
   return (
-    <>
+    <div>
       {/* Header */}
       <section className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <h1 className="h4 mb-0">Teachers Management</h1>
@@ -57,6 +57,6 @@ export default function TeachersPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

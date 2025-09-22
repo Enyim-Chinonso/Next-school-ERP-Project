@@ -14,7 +14,7 @@ export default function StudentSubjectsPage() {
   ];
 
   return (
-    <>
+    <div>
       <section className="mb-4 d-flex justify-content-between align-items-center">
         <h1 className="h5 mb-0">Subjects</h1>
         <button className="btn btn-outline-primary">Browse Catalog</button>
@@ -39,7 +39,7 @@ export default function StudentSubjectsPage() {
           </div>
         ))}
       </section>
-    </>
+    </div>
   );
 }
 

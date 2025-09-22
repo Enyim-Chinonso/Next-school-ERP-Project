@@ -17,7 +17,7 @@ export default function StudentsPage() {
   ];
 
   return (
-    <>
+    <div>
       {/* Header */}
       <section className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <h1 className="h4 mb-0">Students Management</h1>
@@ -59,6 +59,6 @@ export default function StudentsPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
