@@ -60,9 +60,9 @@ export default function OverviewPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td>Bright Future Academy</td>
-                  <td>Abuja</td>
-                  <td>420</td>
+                  <td>Ebonyi state university</td>
+                  <td>Abakaliki</td>
+                  <td>2000</td>
                   <td className="text-end">
                     <button className="btn btn-sm btn-outline-primary me-2 mb-1">
                       Manage
@@ -73,9 +73,22 @@ export default function OverviewPage() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Greenfield High</td>
-                  <td>Lagos</td>
-                  <td>310</td>
+                  <td>College of the Immaculate Conception (CIC)</td>
+                  <td>Enugu</td>
+                  <td>600</td>
+                  <td className="text-end">
+                    <button className="btn btn-sm btn-outline-primary me-2 mb-1">
+                      Manage
+                    </button>
+                    <button className="btn btn-sm btn-outline-danger mb-1">
+                      Disable
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Queens' School Enugu</td>
+                  <td>Enugu</td>
+                  <td>700</td>
                   <td className="text-end">
                     <button className="btn btn-sm btn-outline-primary me-2 mb-1">
                       Manage
